@@ -4,12 +4,48 @@ body {
   background-color: #b91450;
 }
 
+section {
+  margin-bottom: 50px;
+}
+
+.flex {
+  display: flex;
+}
+
 h2 {
   color: #fff;
+}
+
+h5 {
+  margin-bottom: 50px;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h5,
+.biglietto span {
+  text-transform: capitalize;
+}
+
+.box {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
 }
 /* COMMON */
 
 /* Box Credenziali */
+.wrapper {
+  width: 70%;
+  margin: auto;
+}
+
 label {
   display: block;
 }
@@ -17,6 +53,7 @@ label {
 .input {
   margin-bottom: 50px;
 }
+
 input,
 select {
   padding: 3px;
@@ -35,16 +72,31 @@ button {
   border-radius: 5px;
 }
 
-.box {
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #fff;
-}
-
-.flex {
-  width: 70%;
-  margin: auto;
-  display: flex;
+.credenziali .flex {
   justify-content: space-around;
 }
 /* Fine Box Credenziali */
+
+/* Box biglietto */
+.biglietto {
+  text-align: left;
+  border: 1px solid lightgray;
+}
+
+.biglietto > .flex {
+  justify-content: flex-start;
+}
+
+/* dati biglietto */
+.biglietto > .flex > * {
+  padding: 10px 20px;
+}
+
+.passeggero {
+  background-color: lightgray;
+}
+
+.nome-passeggero {
+  font-weight: bold;
+}
+/* Fine Box biglietto */

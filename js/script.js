@@ -1,63 +1,82 @@
-// DATI
-var euroKm = 0.21;
+// INPUT
+var inputNome = document.getElementById('input-nome');
+var inputKm = document.getElementById('input-km');
+var inputEta = document.getElementById('input-eta');
+var buttonGenera = document.getElementById('input-genera');
+var buttonAnnulla = document.getElementById('input-annulla');
 
-var km = parseInt( prompt( "quanti km vuoi fare?" ));
+// BIGLIETTO
+var biglietto = document.getElementById('biglietto');
 
-var anni = prompt( "quanti anni hai?" );
+// DATI BIGLIETTO
+var biglNome = document.getElementById('bigl-nome');
+var biglOfferta = document.getElementById('bigl-offerta');
+var biglCarrozza = document.getElementById('bigl-carrozza');
+var biglCodice = document.getElementById('bigl-codice');
+var biglPrezzo = document.getElementById('bigl-prezzo');
 
-var lunghezzaAnni = anni.length;
+// Click su GENERA
+buttonGenera.addEventListener('click',
+  function() {
 
-var ticketShown = document.getElementById("ticket");
-// FINE DATI
+    // Assegnazione valori
+    var inputKmValue = inputKm.value;
+    var inputEtaValue = inputEta.value;
 
-// LOGICA
-// Condizioni per viaggiare
+    // Calcolo prezzo del biglietto standard
+    var prezzo = inputKmValue * 0.21;
+    var offerta = 'standard'
 
-// controllo età
-if (( lunghezzaAnni > 3 ) || ( lunghezzaAnni < 2 ) || ( parseInt( anni ) == 0 )) {
-  alert( "inserisci un'età corretta" )
-  ticketShown.innerHTML = "Ricarica la pagina";
-  
-  // controllo vecchiaia
-} else if ( parseInt( anni ) > 120 ) {
-  alert( "Forse sei un po' grandicello per viaggiare in treno" )
-  ticketShown.innerHTML = "Ricarica la pagina";
-  
-  // controllo chilometraggio
-} else if ( km == 0 ) {
-  alert( "inserisci chilometraggio corretto" )
-  ticketShown.innerHTML = "Ricarica la pagina";
-  
-} else {
+    // Calcolo offerte
+    if ( inputEtaValue == 'minorenne') {
 
-  // Controllo inserimento dati
-  if ( isNaN( km ) || isNaN( anni )) {
-    ticketShown.innerHTML = "Non è stato possibile calcolare il prezzo del biglietto";
+      // under 18
+      prezzo = prezzo - ( prezzo * 20 / 100);
+      offerta = 'under 18';
 
-    // Calcolo dei vari prezzi di biglietto
-  } else {
-
-    anni = parseInt( anni );
-
-    // prezzo intero
-    var ticket = ( km * euroKm );
-
-    // Prezzo del ticket in base agli anni
-    if ( anni < 18 ) {
-
-      // minorenne
-      var minorsTicket = ticket - ( ticket * ( 20 / 100 ));
-      ticket = minorsTicket;
-
-    } else if ( anni > 65 ) {
+    } else if ( inputEtaValue == 'over' ) {
 
       // over 65
-      var over65Ticket = ticket - ( ticket * ( 40 / 100 ));
-      ticket = over65Ticket;
+      prezzo = prezzo - ( prezzo * 40 / 100);
+      offerta = 'over 65';
     }
 
-    ticketShown.innerHTML = "Il prezzo del biglietto è : " + ticket.toFixed(2) + "$";
-  }
-}
+    // COMPILAZIONE BIGLIETTO
+    // nome
+    biglNome.innerHTML = inputNome.value;
 
-// FINE LOGICA
+    // offerta
+    biglOfferta.innerHTML = offerta;
+
+    // prezzo
+    biglPrezzo.innerHTML = prezzo.toFixed(2) + ' euro';
+
+    // Visualizzazione biglietto
+    biglietto.className = 'visible';
+  }
+)
+
+// Click su ANNULLA
+buttonAnnulla.addEventListener('click',
+  function() {
+
+    // Annullamento nome
+    inputNome.value = '';
+    biglNome.innerHTML = '';
+
+    // Annullamento km
+    inputKm.value = '';
+
+    // Annullamento età
+    inputEta.value = 'maggiorenne';
+
+    // Annullamento offerta
+    biglOfferta.innerHTML = '';
+
+    // Annullamento prezzo
+    biglPrezzo.innerHTML = '';
+
+    // Annullamento biglietto
+    biglietto.className = 'hidden';
+  }
+)

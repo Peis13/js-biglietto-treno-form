@@ -14,61 +14,121 @@
       <!-- Prezzo del biglietto -->
       <h1 id="ticket"></h1>
 
+      <!-- CALCOLO PREZZO -->
+      <section id="credenziali">
 
-      <div class="container">
-        <h2 class="text-uppercase">calcola il prezzo del tuo biglietto</h2>
+        <div class="container">
+          <h2>calcola il prezzo del tuo biglietto</h2>
 
-        <!-- Box credenziali -->
-        <section class="box">
+          <!-- Box credenziali -->
+          <div class="box credenziali">
+            <div class="wrapper">
 
-          <!-- Input -->
-          <div class="flex">
+              <!-- Input -->
+              <div class="flex">
 
-            <!-- nome e cognome -->
-            <div class="input">
-              <label>Nome e Cognome</label>
-              <input type="text" placeholder="Inserisci il tuo nome">
+                <!-- nome e cognome -->
+                <div class="input">
+                  <label>Nome e Cognome</label>
+                  <input id="input-nome" type="text" placeholder="Inserisci il tuo nome">
+                </div>
+
+                <!-- km da percorrere -->
+                <div class="input">
+                  <label>Km da percorrere</label>
+                  <input id="input-km" type="number" placeholder="Inserisci i km">
+                </div>
+
+                <!-- fascia di età -->
+                <div class="input">
+                  <label>Fascia di età</label>
+                  <select id="input-eta" name="eta">
+                    <option value="maggiorenne">
+                      Maggiorenne
+                    </option>
+                    <option value="minorenne">
+                      Minorenne
+                    </option>
+                    <option value="over">
+                      Over 65
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <!-- Fine Input -->
+
+              <!-- Bottoni -->
+              <div class="flex">
+                <div class="buttons">
+
+                  <!-- genera -->
+                  <button id="input-genera" type="button" name="genera">Genera</button>
+
+                  <!-- annulla -->
+                  <button id="input-annulla" type="button" name="annulla">Annulla</button>
+                </div>
+              </div>
+              <!-- Fine Bottoni -->
             </div>
 
-            <!-- km da percorrere -->
-            <div class="input">
-              <label>Km da percorrere</label>
-              <input type="number" placeholder="Inserisci i km">
-            </div>
-
-            <!-- fascia di età -->
-            <div class="input">
-              <label>Fascia di età</label>
-              <select class="" name="eta">
-                <option value="maggiorenne">
-                  Maggiorenne
-                </option>
-                <option value="minorenne">
-                  Minorenne
-                </option>
-                <option value="over">
-                  Over 65
-                </option>
-              </select>
-            </div>
           </div>
-          <!-- Fine Input -->
+          <!-- fine Box credenziali -->
+        </div>
+      </section>
+      <!-- FINE CALCOLO PREZZO -->
 
-          <!-- Bottoni -->
-          <div class="flex">
-            <div class="buttons">
+      <!-- IL TUO BIGLIETTO -->
+      <section id="biglietto" class="hidden">
 
-              <!-- genera -->
-              <button type="button" name="genera">Genera</button>
+        <div class="container">
+          <h2>il tuo biglietto</h2>
 
-              <!-- annulla -->
-              <button type="button" name="annulla">Annulla</button>
+          <!-- Box biglietto -->
+          <div class="box">
+            <h3 class="text-left">dati passeggiero</h3>
+
+            <!-- biglietto -->
+            <div class="biglietto">
+              <div class="flex">
+
+                <!-- nome passeggero -->
+                <div class="passeggero">
+                  <h4>nome passeggero</h4>
+                  <span id="bigl-nome" class="nome-passeggero"></span>
+                </div>
+
+                <!-- offerta -->
+                <div class="offerta">
+                  <h5>offerta</h5>
+                  <span id="bigl-offerta"></span>
+                </div>
+
+                <!-- carrozza -->
+                <div class="carrozza">
+                  <h5>carrozza</h5>
+                  <span id="bigl-carrozza"></span>
+                </div>
+
+                <!-- codice CP -->
+                <div class="codice-cp">
+                  <h5>codice cP</h5>
+                  <span id="bigl-codice"></span>
+                </div>
+
+                <!-- costo biglietto -->
+                <div class="prezzo">
+                  <h5>prezzo biglietto</h5>
+                  <span id="bigl-prezzo"></span>
+                </div>
+              </div>
             </div>
+            <!-- fine biglietto -->
           </div>
-          <!-- Fine Bottoni -->
-        </section>
-        <!-- fine Box credenziali -->
-      </div>
+          <!-- Fine Box biglietto -->
+        </div>
+      </section>
+      <!-- FINE IL TUO BIGLIETTO -->
+
     </main>
 
     <!-- link javascript -->
