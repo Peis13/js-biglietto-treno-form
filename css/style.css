@@ -1,0 +1,50 @@
+/* COMMON */
+body {
+  text-align: center;
+  background-color: #b91450;
+}
+
+h2 {
+  color: #fff;
+}
+/* COMMON */
+
+/* Box Credenziali */
+label {
+  display: block;
+}
+
+.input {
+  margin-bottom: 50px;
+}
+input,
+select {
+  padding: 3px;
+  text-align: center;
+  border: 1px solid #b91450;
+  border-radius: 5px;
+}
+
+button {
+  padding: 3px;
+  margin: 0 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #b91450;
+  border: 1px solid green;
+  border-radius: 5px;
+}
+
+.box {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.flex {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+/* Fine Box Credenziali */
