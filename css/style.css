@@ -1,23 +1,35 @@
-/* COMMON */
+/* NOTE: RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* FINE RESET */
+
+/* NOTE: COMMON */
 body {
+  font-family: sans-serif;
   text-align: center;
   background-color: #b91450;
 }
 
 section {
-  margin-bottom: 50px;
+  width: 80%;
+  margin: 20px auto 0;
 }
 
 .flex {
   display: flex;
 }
 
-h2 {
-  color: #fff;
+.clearfix {
+  content: '';
+  display: table;
+  clear: both;
 }
 
-h5 {
-  margin-bottom: 50px;
+h2 {
+  color: #fff;
 }
 
 h2,
@@ -28,30 +40,55 @@ h5 {
   text-transform: uppercase;
 }
 
-h5,
-.biglietto span {
-  text-transform: capitalize;
-}
-
 .box {
   padding: 20px;
-  border-radius: 10px;
   background-color: #fff;
 }
-/* COMMON */
 
-/* Box Credenziali */
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+/* FINE COMMON */
+
+
+/* NOTE: CALCOLO PREZZO */
+/* Allineamento elementi */
 .wrapper {
   width: 70%;
+  height: 100%;
   margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.credenziali .flex {
+  width: 100%;
+  justify-content: space-around;
+}
+/* Fine Allineamento elementi */
+
+/* Stile elementi */
+.box.rounded {
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 20px -5px gray;
+}
+
+.credenziali {
+  height: 200px;
 }
 
 label {
+  color: #b91450;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: bold;
   display: block;
-}
-
-.input {
-  margin-bottom: 50px;
 }
 
 input,
@@ -60,43 +97,113 @@ select {
   text-align: center;
   border: 1px solid #b91450;
   border-radius: 5px;
+  transition: 0.5s;
 }
 
-button {
-  padding: 3px;
+input:focus,
+select:focus {
+  color: #fff;
+  background-color: #b91450;
+}
+
+input:focus::placeholder,
+select:focus::placeholder {
+  color: #fff;
+}
+
+.btn {
+  padding: 5px 10px;
   margin: 0 10px;
   text-align: center;
   font-weight: bold;
   color: #b91450;
   border: 1px solid green;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-.credenziali .flex {
-  justify-content: space-around;
+.btn:hover {
+  color: #fff;
+  background-color: gray;
+  transform: scale(1.1);
+  transition: 0.2s;
 }
-/* Fine Box Credenziali */
+/* Fine Stile elementi */
+/* FINE CALCOLO PREZZO */
 
-/* Box biglietto */
-.biglietto {
-  text-align: left;
-  border: 1px solid lightgray;
+
+/* NOTE: IL TUO BIGLIETTO */
+/* Errore */
+.alert {
+  color: #fff;
+  padding: 10px;
+  border-left: 5px solid red;
+  background-color: rgba( 255, 0, 0, 0.4 );
+  text-transform: uppercase;
 }
 
-.biglietto > .flex {
-  justify-content: flex-start;
+.messaggio-errore {
+  text-transform: none;
+}
+/* Fine Errore */
+
+/* Allineamento elementi */
+.dati-passeggero,
+.dati-biglietto {
+  height: 100%;
+  float: left;
+  display: flex;
 }
 
-/* dati biglietto */
-.biglietto > .flex > * {
-  padding: 10px 20px;
-}
-
-.passeggero {
+.dati-passeggero {
+  width: 20%;
   background-color: lightgray;
 }
 
+.dati-biglietto {
+  width: 80%;
+}
+
+.dati-passeggero > *,
+.dati-biglietto > * {
+  padding: 10px;
+}
+
+.dati-biglietto > * {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.descrizione-dato,
+.dato {
+  width: 100%;
+}
+/* Fine Allineamento elementi */
+
+/* Stile elementi */
+#tuo-biglietto .box {
+  text-align: left;
+}
+
+.biglietto {
+  width: 100%;
+  height: 150px;
+  border: 1px solid lightgray;
+}
+
+.passeggero {
+
+}
+
 .nome-passeggero {
+  word-wrap: break-word;
   font-weight: bold;
 }
-/* Fine Box biglietto */
+
+h5,
+.biglietto span {
+  text-transform: capitalize;
+}
+/* Fine Stile elementi */
+/* FINE IL TUO BIGLIETTO */

@@ -5,8 +5,10 @@ var inputEta = document.getElementById('input-eta');
 var buttonGenera = document.getElementById('input-genera');
 var buttonAnnulla = document.getElementById('input-annulla');
 
-// BIGLIETTO
+// OUTPUT
 var biglietto = document.getElementById('biglietto');
+var errore = document.getElementById('errore');
+var messaggioErrore = document.getElementById('messaggio-errore');
 
 // DATI BIGLIETTO
 var biglNome = document.getElementById('bigl-nome');
@@ -23,9 +25,26 @@ buttonGenera.addEventListener('click',
     var inputKmValue = inputKm.value;
     var inputEtaValue = inputEta.value;
 
+    if (true) {
+
+    }
+
     // Calcolo prezzo del biglietto standard
     var prezzo = inputKmValue * 0.21;
     var offerta = 'standard'
+
+    // Assegnazione carrozza da 1-10
+    var carrozza = (Math.floor(Math.random() * 10) + 1).toString();
+
+    // Assegnazione mese corrente pre formare il PNR 1-12
+    var day = new Date();
+    var mese = (day.getMonth() + 1).toString();
+
+    // Assegnazione codice PNR (mese + 1-100)
+    var codicePNR = mese + (Math.floor(Math.random() * 100)).toString();
+
+    // Assegnazione codice CP
+    var codiceCP = carrozza + codicePNR;
 
     // Calcolo offerte
     if ( inputEtaValue == 'minorenne') {
@@ -39,6 +58,12 @@ buttonGenera.addEventListener('click',
       // over 65
       prezzo = prezzo - ( prezzo * 40 / 100);
       offerta = 'over 65';
+
+    } else if ( inputEtaValue == 'default' ) {
+
+      // default
+      biglPrezzo.innerHTML = 'seleziona una fascia di età';
+      offerta = '';
     }
 
     // COMPILAZIONE BIGLIETTO
@@ -48,11 +73,19 @@ buttonGenera.addEventListener('click',
     // offerta
     biglOfferta.innerHTML = offerta;
 
+    // carrozza
+    biglCarrozza.innerHTML = carrozza;
+
+    // codice CP
+    biglCodice.innerHTML = codiceCP;
+
     // prezzo
-    biglPrezzo.innerHTML = prezzo.toFixed(2) + ' euro';
+    if ( inputEtaValue !== 'default' ) {
+      biglPrezzo.innerHTML = prezzo.toFixed(2) + ' euro';
+    }
 
     // Visualizzazione biglietto
-    biglietto.className = 'visible';
+    biglietto.className = 'box visible';
   }
 )
 
@@ -68,7 +101,7 @@ buttonAnnulla.addEventListener('click',
     inputKm.value = '';
 
     // Annullamento età
-    inputEta.value = 'maggiorenne';
+    inputEta.value = 'default';
 
     // Annullamento offerta
     biglOfferta.innerHTML = '';

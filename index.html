@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biglietto del treno</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
@@ -17,115 +17,147 @@
       <!-- CALCOLO PREZZO -->
       <section id="credenziali">
 
-        <div class="container">
-          <h2>calcola il prezzo del tuo biglietto</h2>
+        <h2>calcola il prezzo del tuo biglietto</h2>
 
-          <!-- Box credenziali -->
-          <div class="box credenziali">
-            <div class="wrapper">
+        <!-- Box credenziali -->
+        <div class="box rounded credenziali">
+          <div class="wrapper">
 
-              <!-- Input -->
-              <div class="flex">
+            <!-- Input -->
+            <div class="flex">
 
-                <!-- nome e cognome -->
-                <div class="input">
-                  <label>Nome e Cognome</label>
-                  <input id="input-nome" type="text" placeholder="Inserisci il tuo nome">
-                </div>
-
-                <!-- km da percorrere -->
-                <div class="input">
-                  <label>Km da percorrere</label>
-                  <input id="input-km" type="number" placeholder="Inserisci i km">
-                </div>
-
-                <!-- fascia di età -->
-                <div class="input">
-                  <label>Fascia di età</label>
-                  <select id="input-eta" name="eta">
-                    <option value="maggiorenne">
-                      Maggiorenne
-                    </option>
-                    <option value="minorenne">
-                      Minorenne
-                    </option>
-                    <option value="over">
-                      Over 65
-                    </option>
-                  </select>
-                </div>
+              <!-- nome e cognome -->
+              <div class="input">
+                <label>Nome e Cognome</label>
+                <input id="input-nome" type="text" placeholder="Inserisci il tuo nome">
               </div>
-              <!-- Fine Input -->
 
-              <!-- Bottoni -->
-              <div class="flex">
-                <div class="buttons">
-
-                  <!-- genera -->
-                  <button id="input-genera" type="button" name="genera">Genera</button>
-
-                  <!-- annulla -->
-                  <button id="input-annulla" type="button" name="annulla">Annulla</button>
-                </div>
+              <!-- km da percorrere -->
+              <div class="input">
+                <label>Km da percorrere</label>
+                <input id="input-km" type="number" placeholder="Inserisci i km">
               </div>
-              <!-- Fine Bottoni -->
+
+              <!-- fascia di età -->
+              <div class="input">
+                <label>Fascia di età</label>
+                <select id="input-eta" name="eta">
+                  <option value="default">
+                    -- Seleziona età --
+                  </option>
+                  <option value="maggiorenne">
+                    Maggiorenne
+                  </option>
+                  <option value="minorenne">
+                    Minorenne
+                  </option>
+                  <option value="over">
+                    Over 65
+                  </option>
+                </select>
+              </div>
             </div>
+            <!-- Fine Input -->
 
+            <!-- Bottoni -->
+            <div class="flex">
+              <div class="buttons">
+
+                <!-- genera -->
+                <button id="input-genera" type="button" name="genera" class="btn">Genera</button>
+
+                <!-- annulla -->
+                <button id="input-annulla" type="button" name="annulla" class="btn">Annulla</button>
+              </div>
+            </div>
+            <!-- Fine Bottoni -->
           </div>
-          <!-- fine Box credenziali -->
+
         </div>
+        <!-- fine Box credenziali -->
       </section>
       <!-- FINE CALCOLO PREZZO -->
 
       <!-- IL TUO BIGLIETTO -->
-      <section id="biglietto" class="hidden">
+      <section id="tuo-biglietto">
 
-        <div class="container">
-          <h2>il tuo biglietto</h2>
+        <h2>il tuo biglietto</h2>
 
-          <!-- Box biglietto -->
-          <div class="box">
-            <h3 class="text-left">dati passeggiero</h3>
+        <!-- Errore -->
+        <div id="errore" class="box">
+          <div class="alert">
+            <p class="errore">errore:
+              <span id="messaggio-errore" class="messaggio-errore"></span>
+            </p>
+          </div>
+        </div>
+        <!-- Fine Errore -->
 
-            <!-- biglietto -->
-            <div class="biglietto">
-              <div class="flex">
+        <!-- Box biglietto -->
+        <div id="biglietto" class="box hidden">
+          <h3>dati passeggiero</h3>
 
-                <!-- nome passeggero -->
-                <div class="passeggero">
+          <!-- biglietto -->
+          <div class="biglietto clearfix">
+
+            <div class="dati-passeggero">
+
+              <!-- nome passeggero -->
+              <div class="passeggero">
+                <div class="descrizione-dato">
                   <h4>nome passeggero</h4>
+                </div>
+                <div class="dato">
                   <span id="bigl-nome" class="nome-passeggero"></span>
                 </div>
+              </div>
+            </div>
 
-                <!-- offerta -->
-                <div class="offerta">
+            <div class="dati-biglietto">
+
+              <!-- offerta -->
+              <div class="offerta">
+                <div class="descrizione-dato">
                   <h5>offerta</h5>
+                </div>
+                <div class="dato">
                   <span id="bigl-offerta"></span>
                 </div>
+              </div>
 
-                <!-- carrozza -->
-                <div class="carrozza">
+              <!-- carrozza -->
+              <div class="carrozza">
+                <div class="descrizione-dato">
                   <h5>carrozza</h5>
+                </div>
+                <div class="dato">
                   <span id="bigl-carrozza"></span>
                 </div>
+              </div>
 
-                <!-- codice CP -->
-                <div class="codice-cp">
-                  <h5>codice cP</h5>
+              <!-- codice CP -->
+              <div class="codice-cp">
+                <div class="descrizione-dato">
+                  <h5>codice CP</h5>
+                </div>
+                <div class="dato">
                   <span id="bigl-codice"></span>
                 </div>
+              </div>
 
-                <!-- costo biglietto -->
-                <div class="prezzo">
+              <!-- costo biglietto -->
+              <div class="prezzo">
+                <div class="descrizione-dato">
                   <h5>prezzo biglietto</h5>
+                </div>
+                <div class="dato">
                   <span id="bigl-prezzo"></span>
                 </div>
               </div>
             </div>
-            <!-- fine biglietto -->
-          </div>
-          <!-- Fine Box biglietto -->
+          <!-- fine biglietto -->
         </div>
+        <!-- Fine Box biglietto -->
       </section>
       <!-- FINE IL TUO BIGLIETTO -->
 
