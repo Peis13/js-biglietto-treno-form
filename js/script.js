@@ -104,7 +104,6 @@ buttonGenera.addEventListener('click',
       }
 
       // COMPILAZIONE BIGLIETTO
-
       // nome
       biglNome.innerHTML = inputNomeValue;
 
