@@ -22,70 +22,94 @@ buttonGenera.addEventListener('click',
   function() {
 
     // Assegnazione valori
+    var inputNomeValue = inputNome.value
     var inputKmValue = inputKm.value;
     var inputEtaValue = inputEta.value;
 
-    if (true) {
+    // Controllo che tutti i campi siano stati compilati
+    if ( (inputNomeValue == '') && (inputKmValue == '') && (inputEtaValue == 'default')) {
 
-    }
+      // Visualizzazione errore
+      messaggioErrore.innerHTML = 'Inserisci i dati';
+      errore.className = 'box visible';
 
-    // Calcolo prezzo del biglietto standard
-    var prezzo = inputKmValue * 0.21;
-    var offerta = 'standard'
+      // Nascondi biglietto
+      biglietto.className = 'box hidden';
 
-    // Assegnazione carrozza da 1-10
-    var carrozza = (Math.floor(Math.random() * 10) + 1).toString();
+      // Controllo che il nome sia stato inserito
+    } else if (inputNomeValue == '') {
 
-    // Assegnazione mese corrente pre formare il PNR 1-12
-    var day = new Date();
-    var mese = (day.getMonth() + 1).toString();
+      // Visualizzazione errore
+      messaggioErrore.innerHTML = 'Inserisci il tuo nome';
+      errore.className = 'box visible';
 
-    // Assegnazione codice PNR (mese + 1-100)
-    var codicePNR = mese + (Math.floor(Math.random() * 100)).toString();
+      // Controllo che i km siano stati inseriti
+    } else if (inputKmValue == '') {
 
-    // Assegnazione codice CP
-    var codiceCP = carrozza + codicePNR;
+      // Visualizzazione errore
+      messaggioErrore.innerHTML = 'Inserisci un valore numerico di km';
+      errore.className = 'box visible';
 
-    // Calcolo offerte
-    if ( inputEtaValue == 'minorenne') {
+      // Controllo che la fascia di età sia stata selezionata
+    } else if (inputEtaValue == 'default') {
 
-      // under 18
-      prezzo = prezzo - ( prezzo * 20 / 100);
-      offerta = 'under 18';
+      // Visualizzazione errore
+      messaggioErrore.innerHTML = 'Inserisci la fascia di età';
+      errore.className = 'box visible';
 
-    } else if ( inputEtaValue == 'over' ) {
+      // Procedimento della compilazione del biglietto
+    } else {
 
-      // over 65
-      prezzo = prezzo - ( prezzo * 40 / 100);
-      offerta = 'over 65';
+      // Calcolo prezzo del biglietto standard
+      var prezzo = inputKmValue * 0.21;
+      var offerta = 'standard'
 
-    } else if ( inputEtaValue == 'default' ) {
+      // Assegnazione carrozza da 1-10
+      var carrozza = (Math.floor(Math.random() * 10) + 1).toString();
 
-      // default
-      biglPrezzo.innerHTML = 'seleziona una fascia di età';
-      offerta = '';
-    }
+      // Assegnazione mese corrente pre formare il PNR 1-12
+      var day = new Date();
+      var mese = (day.getMonth() + 1).toString();
 
-    // COMPILAZIONE BIGLIETTO
-    // nome
-    biglNome.innerHTML = inputNome.value;
+      // Assegnazione codice PNR (mese + 1-100)
+      var codicePNR = mese + (Math.floor(Math.random() * 100)).toString();
 
-    // offerta
-    biglOfferta.innerHTML = offerta;
+      // Assegnazione codice CP
+      var codiceCP = carrozza + codicePNR;
 
-    // carrozza
-    biglCarrozza.innerHTML = carrozza;
+      // Calcolo offerte
+      if ( inputEtaValue == 'minorenne') {
 
-    // codice CP
-    biglCodice.innerHTML = codiceCP;
+        // under 18
+        prezzo = prezzo - ( prezzo * 20 / 100);
+        offerta = 'under 18';
 
-    // prezzo
-    if ( inputEtaValue !== 'default' ) {
+      } else if ( inputEtaValue == 'over' ) {
+
+        // over 65
+        prezzo = prezzo - ( prezzo * 40 / 100);
+        offerta = 'over 65';
+      }
+
+      // COMPILAZIONE BIGLIETTO
+      // nome
+      biglNome.innerHTML = inputNomeValue;
+
+      // offerta
+      biglOfferta.innerHTML = offerta;
+
+      // carrozza
+      biglCarrozza.innerHTML = carrozza;
+
+      // codice CP
+      biglCodice.innerHTML = codiceCP;
+
+      // prezzo
       biglPrezzo.innerHTML = prezzo.toFixed(2) + ' euro';
-    }
 
-    // Visualizzazione biglietto
-    biglietto.className = 'box visible';
+      // Visualizzazione biglietto
+      biglietto.className = 'box visible';
+    }
   }
 )
 
