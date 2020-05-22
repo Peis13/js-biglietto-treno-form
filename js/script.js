@@ -39,12 +39,18 @@ buttonGenera.addEventListener('click',
       // Controllo che il nome sia stato inserito
     } else if (inputNomeValue == '') {
 
+      // Nascondi biglietto
+      biglietto.className = 'box hidden';
+
       // Visualizzazione errore
       messaggioErrore.innerHTML = 'Inserisci il tuo nome';
       errore.className = 'box visible';
 
       // Controllo che i km siano stati inseriti
     } else if (inputKmValue == '') {
+
+      // Nascondi biglietto
+      biglietto.className = 'box hidden';
 
       // Visualizzazione errore
       messaggioErrore.innerHTML = 'Inserisci un valore numerico di km';
@@ -53,12 +59,18 @@ buttonGenera.addEventListener('click',
       // Controllo che la fascia di età sia stata selezionata
     } else if (inputEtaValue == 'default') {
 
+      // Nascondi biglietto
+      biglietto.className = 'box hidden';
+
       // Visualizzazione errore
       messaggioErrore.innerHTML = 'Inserisci la fascia di età';
       errore.className = 'box visible';
 
       // Procedimento della compilazione del biglietto
     } else {
+
+      // Nascondi errore
+      errore.className = 'box hidden';
 
       // Calcolo prezzo del biglietto standard
       var prezzo = inputKmValue * 0.21;
@@ -92,6 +104,7 @@ buttonGenera.addEventListener('click',
       }
 
       // COMPILAZIONE BIGLIETTO
+
       // nome
       biglNome.innerHTML = inputNomeValue;
 
@@ -135,5 +148,8 @@ buttonAnnulla.addEventListener('click',
 
     // Annullamento biglietto
     biglietto.className = 'hidden';
+
+    // Annullamento errore
+    errore.className = 'hidden';
   }
 )
